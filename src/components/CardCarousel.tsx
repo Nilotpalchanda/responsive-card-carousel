@@ -40,12 +40,23 @@ export function CardCarousel({ title, viewAllLink, children }: CardCarouselProps
         </div>
       </div>
       
-      <div 
-        ref={scrollContainerRef}
-        className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide scroll-smooth"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {children}
+      <div className="relative">
+        <div 
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide scroll-smooth"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {children}
+        </div>
+        
+        {/* Scroll button positioned at the right edge of the carousel */}
+        <button
+          onClick={scrollRight}
+          className="absolute right-[-16px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 hidden md:flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+          aria-label="Scroll cards right"
+        >
+          <ChevronRight className="w-5 h-5 text-blue-600" />
+        </button>
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ export function ContentCard({
   };
   
   return (
-    <div className={cn("flex flex-col w-[260px] min-w-[260px] relative group", className)}>
+    <div className={cn("flex flex-col w-[260px] min-w-[260px]", className)}>
       <div className="relative h-32 w-full rounded-lg overflow-hidden mb-2">
         <img 
           src={image} 
@@ -71,11 +71,6 @@ export function ContentCard({
         {isPremium && (
           <span className="ml-auto text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Premium</span>
         )}
-      </div>
-
-      {/* Arrow icon positioned at the right middle of card */}
-      <div className="absolute right-[-12px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        <ArrowRight className="w-4 h-4 text-blue-600" />
       </div>
     </div>
   );
