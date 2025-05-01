@@ -25,6 +25,7 @@ const contentCards = [
     category: "Immigration",
     duration: "5 min read",
     isNew: true,
+    rating: 4
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ const contentCards = [
     description: "Key insights on reducing operational costs while maintaining productivity.",
     category: "Business",
     duration: "8 min read",
+    rating: 3
   },
   {
     id: 3,
@@ -41,6 +43,7 @@ const contentCards = [
     description: "How mobility programs can support environmental goals.",
     category: "Sustainability",
     duration: "10 min read",
+    rating: 5
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const contentCards = [
     category: "Leadership",
     duration: "7 min read",
     isPremium: true,
+    rating: 4
   },
 ];
 
@@ -62,6 +66,7 @@ const suggestedCards = [
     category: "Immigration",
     duration: "6 min read",
     isNew: true,
+    rating: 5
   },
   // Duplicate cards with new IDs for demonstration
   ...contentCards.slice(1).map((card, index) => ({ ...card, id: index + 6 }))
