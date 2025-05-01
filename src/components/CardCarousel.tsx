@@ -1,6 +1,7 @@
 
 import { ChevronRight } from "lucide-react";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CardCarouselProps {
   title: string;
@@ -10,6 +11,7 @@ interface CardCarouselProps {
 
 export function CardCarousel({ title, viewAllLink, children }: CardCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
@@ -52,7 +54,7 @@ export function CardCarousel({ title, viewAllLink, children }: CardCarouselProps
         {/* Scroll button positioned at the right edge of the carousel */}
         <button
           onClick={scrollRight}
-          className="absolute right-[-16px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 hidden md:flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
+          className="absolute right-[-16px] top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-md p-2 flex items-center justify-center hover:bg-gray-50 transition-colors z-10"
           aria-label="Scroll cards right"
         >
           <ChevronRight className="w-5 h-5 text-blue-600" />
