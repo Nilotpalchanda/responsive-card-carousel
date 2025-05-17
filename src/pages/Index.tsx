@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { SearchBar } from "@/components/SearchBar";
 import { CategoryButton } from "@/components/CategoryButton";
@@ -6,6 +5,7 @@ import { CardCarousel } from "@/components/CardCarousel";
 import { ContentCard } from "@/components/ContentCard";
 import { PromotionBanner } from "@/components/PromotionBanner";
 import { CommunityPost } from "@/components/CommunityPost";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const categories = [
   { id: 1, name: "Thought leadership", active: true },
@@ -104,17 +104,19 @@ const Index = () => {
         
         <div className="mb-8">
           <h2 className="text-lg font-medium mb-4">Your saved interests</h2>
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            {categories.map((category) => (
-              <CategoryButton 
-                key={category.id}
-                active={category.id === activeCategory}
-                onClick={() => setActiveCategory(category.id)}
-              >
-                {category.name}
-              </CategoryButton>
-            ))}
-          </div>
+          <ScrollArea className="w-full" orientation="horizontal">
+            <div className="flex gap-2 pb-2">
+              {categories.map((category) => (
+                <CategoryButton 
+                  key={category.id}
+                  active={category.id === activeCategory}
+                  onClick={() => setActiveCategory(category.id)}
+                >
+                  {category.name}
+                </CategoryButton>
+              ))}
+            </div>
+          </ScrollArea>
         </div>
         
         <div className="mb-8">
